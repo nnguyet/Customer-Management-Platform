@@ -1,3 +1,4 @@
+from email.policy import default
 from itertools import product
 from unicodedata import category
 from django.db import models
@@ -10,6 +11,7 @@ class Customer(models.Model):
     name = models.CharField(max_length=200, null=True)
     phone = models.CharField(max_length=200, null=True)
     email = models.CharField(max_length=200, null=True)
+    profile_pic = models.ImageField(default="default_profile.png", null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
